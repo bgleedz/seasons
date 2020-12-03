@@ -1,8 +1,6 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+With this project you can see what season it is depending on your location (latitude/longitude)
 
 ## Available Scripts
-
-In the project directory, you can run:
 
 ### `npm start`
 

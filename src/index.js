@@ -2,35 +2,31 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import SeasonDisplay from './SeasonDisplay';
 import Spinner from './Spinner';
+import 'semantic-ui-css/semantic.min.css';
 
 class App extends React.Component {
-	//abbreviated by babel
 	state = { lat: null, errorMessage: ''};
 
 	componentDidMount () {
 		window.navigator.geolocation.getCurrentPosition(
-		position => this.setState({ lat: position.coords.latitude }),
-			//WE DO NOT WRITE THIS: (this not good)
-			//this.state.lat = position.coords.latitude
-		err => this.setState({ errorMessage: err.message })
+			position => this.setState({ lat: position.coords.latitude }),
+			err => this.setState({ errorMessage: err.message })
 		);
-		
 	}
 
 	renderContent () {
+		let element = <Spinner message = "Please accept location request."/>;
+
 		if (this.state.errorMessage && !this.state.lat) {
-			return <div>Error: {this.state.errorMessage}</div>;
+			element = <div>Error: {this.state.errorMessage}</div>;
 		}
 
 		if (!this.state.errorMessage && this.state.lat) {
-			return <SeasonDisplay lat={this.state.lat} />
+			element = <SeasonDisplay lat={this.state.lat} />;
 		}
 
-		return <Spinner message="Please accept location request."/>;
-
+		return element;
 	}
-
-
 
 	render() {
 		return (
@@ -41,4 +37,4 @@ class App extends React.Component {
 	}
 }
 
-ReactDOM.render(<App />, document.querySelector('#root'));
+ReactDOM.render(<App/>, document.querySelector('#root'));
