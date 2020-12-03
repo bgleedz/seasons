@@ -13,7 +13,7 @@ const seasonConfig = {
 };
 
 const getSeason = (lat, month) => {
-
+ //TODO change from if to ternary(s)
 	if (month > 2 && month < 9) {
 		return lat > 0 ? 'summer' : 'winter';
 	} else {
