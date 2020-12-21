@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import SeasonDisplay from './SeasonDisplay';
-import Spinner from './Spinner';
+import SeasonDisplay from './components/SeasonDisplay';
+import Spinner from './components/Spinner';
 import 'semantic-ui-css/semantic.min.css';
 
 class App extends React.Component {
